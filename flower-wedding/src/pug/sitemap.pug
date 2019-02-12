@@ -1,0 +1,64 @@
+extends layouts/template
+
+block vars
+  -title = 'Sitemap'
+
+mixin pageItem(name, hrefPage, start, end)
+  li&attributes(attributes): +link(name, hrefPage)
+    .item!= name
+    .item!= start
+    .item!= end
+block container
+  style.
+    * {
+      box-sizing: border-box;
+    }
+    .template {text-align: center; margin: 10px}
+    .template ul {list-style: none; padding: 0;  margin: 0;}
+    .template a {display: block; padding: 15px; text-decoration: none; background: #fff; color: #111; line-height: 1;}
+    .template a:hover {background: #ddd; color: #000;}
+    h1 {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    h2 {
+      padding: 15px 0;
+      font-weight: bold;
+    }
+
+    .page-list li{
+      width: 100%;
+      font-size: 0;
+      border-bottom: 1px solid #e6e6e6;
+    }
+    .page-list li a {
+      display: block;
+      width: 100%;
+      padding: 0;
+    }
+    .page-list li.head {
+      background-color: #ccc;
+      font-weight: bold;
+    }
+    .page-list li .item {
+      display: inline-block;
+      width: 33%;
+      text-align: left;
+      padding: 10px 15px;
+      font-size: 1rem;
+    }
+    @media only screen and (min-width : 767px) {
+      /*.template li {float: left; width: 33.33333333%; padding: 0 10px;}*/
+      .template ul {overflow: hidden;}
+    }
+
+
+  h1 Title
+  h2 Pages
+  ul.page-list
+    li.head
+      .item!= 'Page name'
+      .item!= 'Start Day'
+      .item!= 'End Day'
+    +pageItem('Homepage', 'index.html', '', '')
+
