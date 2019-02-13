@@ -1,147 +1,171 @@
-var gulp = require('gulp');
-var browserSync = require('browser-sync');
-var reload = browserSync.reload;
-var minify = require('gulp-minify');
-var minifyCss = require('gulp-minify-css');
-var cleanCss = require('gulp-clean-css');
-var imagemin = require('gulp-imagemin');
-var pngquant = require('imagemin-pngquant');
-var sass = require('gulp-sass');
-var livereload = require('gulp-livereload');
-var concat = require('gulp-concat');
+'use strict';
 
-gulp.task('serve', [], function() {
-    browserSync({
-        notify: true,
-        port: 3000,
-        server: {
-            baseDir: './src/app/'
-        }
-    });
-    gulp.watch(['./src/app/*.html'], reload);
-    gulp.watch(['./src/assets/js/*.js'], reload);
-    gulp.watch(['./src/assets/css/*.css'], reload);
-    gulp.watch(['./src/assets/images/*'], reload);
-});
+const gulp = require('gulp');
+const less = require('gulp-less');
+const pug = require('gulp-pug');
+const cssmin = require('gulp-cssmin');
+const imagemin = require('gulp-imagemin');
+const uglify = require('gulp-uglify');
+const rename = require('gulp-rename');
+const connect = require('gulp-connect');
+const concat = require('gulp-concat');
+const autoprefixer = require('gulp-autoprefixer');
+const sourcemaps = require('gulp-sourcemaps');
+const del = require('del');
+const watch = require('gulp-watch');
+const expect = require('gulp-expect-file');
+const ghPages = require('gulp-gh-pages');
+const MAP = { map: true };
 
 
-gulp.task('build', [], function() {
-    gulp.src("./src/assets/css/*.css")
-        .pipe(gulp.dest('build/css'));
-    gulp.src("fonts/*")
-        .pipe(gulp.dest('build/fonts'));
-    gulp.src("./src/assets/js/*.js")
-        .pipe(gulp.dest('build/js'));
-    gulp.src("./src/app/**.html")
-        .pipe(gulp.dest('build/'));
-});
-gulp.task('combineCss', function() {
-    return gulp.src([
-            './src/assets/css/lib/*'
-        ])
-        .pipe(concat('lib.css'))
-        .pipe(gulp.dest('./src/assets/css/'));
-});
-gulp.task('combineJS', function() {
-    return gulp.src([
-            './src/assets/js/lib/*'
-        ])
-        .pipe(concat('lib.js'))
-        .pipe(gulp.dest('./src/assets/js/'));
-});
+// Source folder configuration
+const SRC_DIR = {};
+SRC_DIR.root = 'src/';
+SRC_DIR.assets = SRC_DIR.root + 'assets/';
+SRC_DIR.img = SRC_DIR.root + 'images/';
+SRC_DIR.js = SRC_DIR.root + 'js/';
+SRC_DIR.less = SRC_DIR.root + 'less/';
+SRC_DIR.pug = SRC_DIR.root + 'pug/';
 
-gulp.task('nenimg', function() {
-    gulp.src('./src/assets/images/*') //đường dẫn đến thư mục chứa các file images
-        .pipe(imagemin({
-            progressive: true,
-            svgoPlugins: [{ removeViewBox: false }],
-            use: [pngquant()]
-        }))
-        .pipe(gulp.dest('dist/images')); //thư mục dùng để chứa các file images sau khi nén
-});
+// Source file matchers, using respective directories
+const SRC_FILES = {
+	lessFile: SRC_DIR.less + '**/*.less',
+	less: SRC_DIR.less + 'style.less',
+	lessPrint: SRC_DIR.less + 'print.less',
+	lessBootstrap: SRC_DIR.less + 'bootstrap/bootstrap.less',
+	lessBlocks: SRC_DIR.less + 'blocks/*.less',
+	pugLayouts: SRC_DIR.pug + 'layouts/*.pug',
+	pugBlocks: SRC_DIR.pug + 'blocks/*.pug',
+	pugMixins: SRC_DIR.pug + 'mixins/*.pug',
+	pug: SRC_DIR.pug + '*.pug',
+	pugFiles: SRC_DIR.pug + '**/*.pug',
+	js: SRC_DIR.js + '*.js',
+	jsFile: SRC_DIR.js + '**/*.js',
+	jsPlugin: SRC_DIR.js + 'plugins/*.js',
+	jsLibs: ['./src/js/libs/modernizr.min.js', './src/js/libs/detectizr.min.js', './src/js/libs/jquery.min.js', './src/js/libs/tether.min.js', './src/js/libs/plugins/*.js'],
+	images: SRC_DIR.img + '**/*',
+	assets: SRC_DIR.assets + '**/*'
+};
 
-
-gulp.task('minify-js', function() {
-    gulp.src('./src/assets/js/main.js')
-        .pipe(minify({
-            ext:{
-                src:'.js',
-                min:'.min.js'
-            },
-            exclude: ['tasks'],
-            ignoreFiles: ['.combo.js', '-min.js']
-        }))
-        .pipe(gulp.dest('build/js/'))
-});
-gulp.task('minify-common-js', function() {
-    gulp.src('./src/assets/js/common.js')
-        .pipe(minify({
-            ext:{
-                src:'.js',
-                min:'.min.js'
-            },
-            exclude: ['tasks'],
-            ignoreFiles: ['.combo.js', '-min.js']
-        }))
-        .pipe(gulp.dest('build/js/'))
-});
-gulp.task('minify-style-css', function () {
-    return gulp.src(['./src/assets/css/style.css'])
-        .pipe(concat('style.min.css'))
-        .pipe(cleanCss())
-        .pipe(gulp.dest('build/css'));
-});
-gulp.task('minify-lib-css', function () {
-    return gulp.src(['./src/assets/css/lib.css'])
-        .pipe(concat('lib.min.css'))
-        .pipe(cleanCss())
-        .pipe(gulp.dest('build/css'));
-});
+// Output directories
+const PUB_DIR = {};
+PUB_DIR.root = './public/';
+PUB_DIR.js = PUB_DIR.root + 'js/';
+PUB_DIR.jsLibs = PUB_DIR.root + 'js/libs.js';
+PUB_DIR.css = PUB_DIR.root + 'css/';
+PUB_DIR.cssFiles = PUB_DIR.root + ['css/style.css', 'css/libs.css', 'css/print.css'];
+PUB_DIR.fnt = PUB_DIR.root + 'fonts/';
+PUB_DIR.img = PUB_DIR.root + 'images/';
 
 
+// TASKS
 
-gulp.task('compress', function() {
-    //cấu hình minify js
-    gulp.src('./src/assets/js/*.js') //đường dẫn đến thư mục chứa các file js
-        .pipe(minify({
-            ext: {
-                src: '.min.js',
-                min: '.min.js'
-            },
-            exclude: ['tasks'],
-            ignoreFiles: ['main.js']
-        }))
-        .pipe(gulp.dest('js')); //thư mục dùng để chứa các file js sau khi nén
-    //cấu hình minify css
-    // gulp.src('css/style.css') //đường dẫn đến thư mục chứa các file css
-    //     .pipe(minifyCss({ compatibility: 'ie8' }))
-    //     .pipe(gulp.dest('css')); //thư mục dùng để chứa các file css sau khi nén
-    //cấu hình minify image
-    // gulp.src('images/*') //đường dẫn đến thư mục chứa các file images
-    //     .pipe(imagemin({
-    //         progressive: true,
-    //         svgoPlugins: [{ removeViewBox: false }],
-    //         use: [pngquant()]
-    //     }))
-    //     .pipe(gulp.dest('images')); //thư mục dùng để chứa các file images sau khi nén
-});
-
-// Compile Our Sass
-gulp.task('sass', function() {
-    return gulp.src(['./src/assets/sass/style.scss', './src/assets/sass/responsive.scss', './src/assets/sass/animation.scss', './src/assets/sass/translate.scss'])
-        .pipe(sass())
-        .pipe(gulp.dest('./src/assets/css'))
-        .pipe(livereload());
-});
-
-// Watch Files For Changes
 gulp.task('watch', function() {
-    livereload.listen();
-    gulp.watch(['./src/assets/sass/**/*'], ['sass']);
+
+	watch([SRC_FILES.lessFile], function() {
+		gulp.start('lessDev');
+	});
+	watch([SRC_FILES.pugFiles], function() {
+		gulp.start('pug');
+	});
+	watch([SRC_FILES.jsFile], function() {
+		gulp.start('js');
+	});
+	watch([SRC_FILES.images], function() {
+		gulp.start('copyImages');
+	});
+	watch([SRC_FILES.assets], function() {
+		gulp.start('copyAssets');
+	});
 });
 
-// Default Task
-gulp.task('default', ['sass', 'combineJS', 'combineCss', 'watch', 'serve']);
+gulp.task('js', function() {
+	gulp.src([SRC_FILES.js, SRC_FILES.jsPlugin])
+		.pipe(gulp.dest(PUB_DIR.js))
+		.pipe(connect.reload())
+	gulp.src(SRC_FILES.jsLibs)
+		.pipe(concat('libs.js'))
+		.pipe(gulp.dest(PUB_DIR.js));
+});
 
-// build project
-gulp.task('project', ['build', 'minify-js', 'minify-common-js', 'minify-style-css', 'minify-lib-css']);
+gulp.task('jsmin', function() {
+	gulp.src([SRC_FILES.js, SRC_FILES.jsPlugin])
+		.pipe(uglify())
+		.pipe(gulp.dest(PUB_DIR.js))
+		.pipe(connect.reload())
+});
+
+gulp.task('less', function() {
+	gulp.src([SRC_FILES.less, SRC_FILES.lessBootstrap, SRC_FILES.lessPrint])
+		.pipe(expect([SRC_FILES.less, SRC_FILES.lessBootstrap, SRC_FILES.lessPrint]))
+		.pipe(less())
+		// .pipe(autoprefixer(MAP))
+		.pipe(gulp.dest(PUB_DIR.css))
+			.pipe(cssmin())
+			.pipe(rename({suffix: '.min'}))
+			.pipe(gulp.dest(PUB_DIR.css))
+			.pipe(connect.reload())
+});
+gulp.task('lessDev', function () {
+	gulp.src([SRC_FILES.less, SRC_FILES.lessBootstrap, SRC_FILES.lessPrint])
+	.pipe(expect([SRC_FILES.less, SRC_FILES.lessBootstrap, SRC_FILES.lessPrint]))
+	.pipe(sourcemaps.init())
+		.pipe(less())
+		// .pipe(autoprefixer(MAP))
+		.pipe(sourcemaps.write())
+		.pipe(gulp.dest(PUB_DIR.css))
+		// .pipe(cssmin())
+		// .pipe(rename({suffix: '.min'}))
+		.pipe(gulp.dest(PUB_DIR.css))
+		.pipe(connect.reload())
+});
+gulp.task('pug', function() {
+	gulp.src(SRC_FILES.pug)
+		.pipe(expect(SRC_FILES.pug))
+		.pipe(pug({
+			pretty: true // Comment this to get minified HTML
+		}))
+		.pipe(gulp.dest(PUB_DIR.root))
+		.pipe(connect.reload())
+});
+
+gulp.task('imagemin', function() {
+	gulp.src(SRC_FILES.images)
+		.pipe(imagemin())
+		.pipe(gulp.dest(PUB_DIR.img))
+		.pipe(connect.reload())
+});
+
+gulp.task('copyImages', function() {
+	gulp.src(SRC_FILES.images)
+		.pipe(gulp.dest(PUB_DIR.img))
+		.pipe(connect.reload())
+});
+
+gulp.task('copyAssets', function() {
+	gulp.src(SRC_FILES.assets)
+		.pipe(gulp.dest(PUB_DIR.root))
+		.pipe(connect.reload())
+});
+
+gulp.task('webserver', function() {
+	connect.server({
+		root: 'public',
+		livereload: true,
+		port: 1000,
+		host: 'localhost'
+	})
+});
+gulp.task('clean', function() {
+	return del.sync('public');
+});
+
+gulp.task('dev', ['clean', 'lessDev', 'pug', 'copyImages', 'js', 'copyAssets']);
+gulp.task('build', ['clean', 'less', 'pug', 'imagemin', 'js', 'copyAssets']);
+gulp.task('default', ['dev', 'webserver', 'watch']);
+
+gulp.task('deploy', function() {
+	return gulp.src('./public/**/*')
+		.pipe(ghPages());
+});
+
