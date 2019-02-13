@@ -1,0 +1,39 @@
+.figure-img{
+    img {
+        max-width: 300px;
+    }
+}
+.container{
+    &-content{
+        margin: 0 auto;
+        width: 60%;
+    }
+    &-head, &-content{
+        .love-story & {
+            text-align: center;
+        }
+    }
+}
+.love-story{
+    position: relative;
+    &:before, &:after{
+        content: "";
+        position: absolute;                
+    }
+    &:before  {
+        background-image: url(../images/decor/ls-flower.png);
+        background-repeat: no-repeat;
+        width: 150px;
+        height: 180px;
+        left: 0;
+        top: 20%;
+    }
+    &:after {
+        background-image: url(../images/decor/ls-flower-prlx.png);
+        background-repeat: no-repeat;
+        width: 170px;
+        height: 130px;
+        left: 100px;
+        top: 40%;
+    }
+}

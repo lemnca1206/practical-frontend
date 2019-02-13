@@ -2,8 +2,12 @@ mixin nav(items)
   ul
     each item, key in items
       - var active = ''
+      - var dropdown = ''
       - if (key === menuIndex) active = 'active'
-      li(class=active)
-        +link(item.title, item.href, item.text)(class=item.class)
+      - if (item.itemsMenu) dropdown = 'dropdown'
+      li(class=active + dropdown)
+        - if (!item.text) item.text = item.title
+        +link(item.title, item.href, item.text)
         if (typeof(item.itemsMenu) !== 'undefined')
-          +nav(item.itemsMenu)
+          .menu-dropdown
+            +nav(item.itemsMenu)

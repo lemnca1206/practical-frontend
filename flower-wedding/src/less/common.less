@@ -1,2 +1,39 @@
 // Common
-.color-1 {}
+// Color Class
+.color {
+    &-white{
+        color: @white;
+    }
+}
+// Modified a
+a {
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    &:hover {
+        text-decoration: none;
+    }
+    &:focus {
+        text-decoration: none;
+    }
+    &:visited{
+        text-decoration: none;
+    }
+}
+// Section
+.background-section {
+    background-image: url(../images/background.png);
+    background-repeat: repeat;
+}
+.section-box{
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.section-blue {
+    background-color: rgba(109, 148, 142, 0.2);
+}
+// Heading
+.heading-2{
+    font-size: 44px;
+    margin: 0 0 20px;
+}
