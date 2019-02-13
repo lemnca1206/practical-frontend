@@ -1,0 +1,44 @@
+.container {
+    &-head {
+        .date-wedding &{
+            width: 55%;
+            margin: 0 auto;
+            margin-bottom: 40px;
+            &:before, &:after{
+                position: absolute;
+                content: '';
+                background-size: 150px;
+                width: 150px;
+                height: 200px;
+                top: 50%;
+                .transform(translateY(-50%));
+            }
+            &:before {
+                background-image: url(../images/decor/leaves-left.png);
+                background-position: center center;
+                background-repeat: no-repeat;
+                left: 0;
+            }
+            &:after {
+                background-image: url(../images/decor/leaves-right.png);
+                background-position: center center;
+                background-repeat: no-repeat;
+                left: auto;
+                right: 0;
+            }
+        }
+    }
+}
+#clockcountdown{
+    .flex-block();
+    .justify-content(center);
+    .item{
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+        padding: 0 30px;
+        span{
+            font-size: 48px;
+        }
+    }
+}
