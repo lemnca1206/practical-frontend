@@ -12,3 +12,31 @@
         top: 0;
     }
 }
+
+.container-carousel {
+    margin-top: 80px;
+    margin-bottom: 100px;
+    position: relative;
+    .slick-gallery{
+        &_number{
+            position: absolute;
+            left: 50%;
+            top: auto;
+            bottom: -80px;
+            font-size: 30px;
+            .transform(translateX(-50%));            
+            div, span {
+                margin: 0 5px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+        .slider-item{
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding-top: 5%;
+            margin: 0 20px;
+        }
+    }
+}

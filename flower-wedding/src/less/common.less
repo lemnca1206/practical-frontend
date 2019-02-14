@@ -28,12 +28,14 @@ a {
     background-image: url(../images/background.png);
     background-repeat: repeat;
 }
-.section-box{
-    padding-top: 100px;
-    padding-bottom: 100px;
-}
-.section-blue {
-    background-color: rgba(109, 148, 142, 0.2);
+.section {
+    &-box{
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+    &-blue{
+        background-color: rgba(109, 148, 142, 0.2);
+    }
 }
 // Heading
 .heading{
@@ -72,6 +74,11 @@ a {
     }
     &-big{
         padding: 20px 35px;
+        font-size: 18px;
+        .border-radius(0);        
+    }
+    &-xl{
+        padding: 20px 50px;
         font-size: 18px;
         .border-radius(0);        
     }

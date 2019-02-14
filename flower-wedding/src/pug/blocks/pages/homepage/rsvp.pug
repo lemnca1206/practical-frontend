@@ -1,0 +1,20 @@
+section.section-box.background-section.rsvp-section.rsvp
+    .container
+        .row
+            .col-12.col-md-4: +img('rsvp', '../images/event/rsvp-flower.png').img-responsive
+            .col-12.col-md-8
+                h2.heading-2 RSVP
+                h6.heading-4.text-uppercase.bold Will you attend?
+                form(action="").rsvp-form
+                    .row
+                        .col-md-8
+                            .form-group
+                                label(for="inputName").control-label Your Name
+                                input(type="text").form-control#inputName
+                            .form-group
+                                label(for="contactNumber").control-label Contact Number
+                                input(type="text").form-control#contactNumber
+                        .col-md-4.button-submit
+                            button(type="submit").btn.btn-xl.btn-outline-dark Send
+                        
+

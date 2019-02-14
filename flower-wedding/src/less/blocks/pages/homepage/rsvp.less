@@ -1,0 +1,36 @@
+.rsvp-form{
+    position: relative;
+    .form{
+        &-group{
+            position: relative;
+            margin-top: 50px;
+            margin-bottom: 0;
+            .control-label{
+                font-weight: 400;
+                position: absolute;
+                top: 10px;
+                left: 12px;
+                .transition(all ease .5s);
+                &.filled {
+                    top: -20px;
+                    .transition(all ease .5s);
+                }
+            }
+        }
+    }
+    .form-control{
+        border:none;
+        border-bottom: 1px solid @color;
+        background-color: transparent;
+        height: 45px;
+        font-size: 20px;
+        .border-radius(0);
+        .box-shadow(none);
+    }
+    .button-submit{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+    
+}

@@ -1,16 +1,24 @@
 $(document).ready(function() {
+  // Sticky Navbar
   stickyNavbar();
 
+  // Count Down
   const deadline = Date.parse('Jan 16, 2021');
   initializeClock('clockcountdown', deadline);
 
+  // Accordion Tabs
   const $tab = $('[data-tab]');
   $tab.each(function () {
     accordionTab($tab);
   });
 
+  // Carousel
   carousel();
-    
+  carouselNum();
+  $('.slick-initialized').on('afterChange', carouselNum);
+
+  // Fill Form
+  filledLabels();
 });
 
 // CountDown
@@ -56,8 +64,8 @@ accordionTab = (el) => {
   el.find('[data-link]').click(function () {
     let that = $(this);
     if (!that.hasClass('active')) {
-      that.addClass('active');
       that.siblings().removeClass('active');
+      that.addClass('active');      
     }
     let index = that.index();
     dataContent = el.find('[data-tab-content]');
@@ -112,6 +120,64 @@ carousel = () => {
       ]
     });
   }
+  let $wish = $('.slick-wish');
+  if ($wish) {
+    $wish.slick({
+        dots: true,
+				arrows: false
+    })
+  }
+  let $gift = $('.slick-gift');
+  if ($gift) {
+    $gift.slick({
+      dots: true,
+      arrows: false,
+      slidesToShow: 5,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 640,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          }
+        }
+      ]
+    })
+  }
 }
 
+carouselNum = () => {
+  let $slides = $('.slick-gallery .slick-slide').not('.slick-cloned');
+  let $currentSlide = $('.slick-slide.slick-current').attr('data-slick-index');
+  $('.slick-gallery_number__current').text(+$currentSlide + 1);
+  $('.slick-gallery_number__all').text($slides.length);
+}
+
+filledLabels = () => {
+  const inputFields = $('.control-label').next();
+  inputFields.each(function(){
+    let singleInput = $(this);
+    singleInput.on('focus blur', function(event){
+      checkVal(singleInput);
+    });
+  });
+}
+checkVal = (el) => {
+  if (el.val() === '') {
+    if (event.type === "focus") {
+      el.prev('.control-label').addClass('filled')
+    } else if (event.type === "blur") {
+      el.prev('.control-label').removeClass('filled')
+    }
+  }
+}
   
