@@ -1,19 +1,43 @@
 .accordion{
     &-wrapper{
-
+        margin-top: 30px;
     }
     &-header{
-
+        .flex-block();
+        .justify-content(center);
+        border-bottom: 1px solid #adadad;
     }
     &-body{
+        padding: 50px 0;
         &_item{
+            display: none;
+            &.is-active{
+                display: block;
+            }
             &__img{
                 background-position: center center;
                 background-repeat: no-repeat;
                 background-size: cover;
                 padding-top: 56.25%;
             }
-            &__content{
+            &__content{ 
+                .info{
+                    .item {
+                        font-size: 18px;
+                        font-weight: lighter;
+                        margin-bottom: 20px;
+                        i, p{
+                            display: inline-block;
+                            vertical-align: middle;
+                        }
+                        p{
+                            margin: 0;
+                            margin-left: 15px;
+                            padding: 0;
+                            font-size: 14px;
+                        }
+                    }
+                }
 
             }
         }

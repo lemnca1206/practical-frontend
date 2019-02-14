@@ -5,21 +5,33 @@ section.event-section.event-wedding.section-box.background-section
                 h2.heading-2 Wedding Events
                 h3.heading-sub Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             .conatainer-accordion
-                .accordion-wrapper
+                .accordion-wrapper(data-tab)
                     .accordion-header
+                        button(type="button", data-link).btn.btn-accordion.active Ceremony
+                        button(type="button", data-link).btn.btn-accordion Dinner
+                        button(type="button", data-link).btn.btn-accordion Party
                     .accordion-body
-                        .accordion-body_item
-                            .row
-                                .col-12.col-lg-6
-                                    .accordion-body_item__img(style="background-image: url(../images/event/ceremony.png)")
-                                .col-12.col-lg-6
-                                    .accordion-body_item__content
-                                        h3.heading-3.title When and Where
-                                        .info
-                                            .item.item-location
-                                                <i class="fas fa-map-marker-alt"></i>
-                                                | W Hotel, 1423 Hobart St, Pittsburgh, PA, 15217
-                                            .item.item-clock
-                                                <i class="far fa-clock"></i>
-                                                | 09:00 - 10:30, Sep 15, 2018
-                                            .item Keep it classy
+                        .accordion-body_item.is-active(data-tab-content)
+                            +accordion('../images/event/ceremony.png','W Hotel, 1423 Hobart St, Pittsburgh, PA, 15217', '09:00 - 10:30, Sep 15, 2018')
+                        .accordion-body_item(data-tab-content)
+                            +accordion('../images/event/dinner.jpg','W Hotel, 1423 Hobart St, Riverdales, PA, 15217', '17:00 - 21:00, Sep 15, 2018')
+                        .accordion-body_item(data-tab-content)
+                            +accordion('../images/event/party.jpg','W Hotel, 1423 Hobart St, Pittsburgh, PA, 15217', '21:00 - 00:00, Sep 15, 2018')
+            .container-event-info
+                .row
+                    col-12.col-lg-4
+                        +event-info('GETTING THERE')
+                            p You can get there using the car, bus or train.
+                    col-12.col-lg-4
+                        +event-info('WHERE TO STAY')
+                            p Hotel, Motel
+                            p There are many options to choose around. You can book accommodation online, either at hotel's own web site or at web site of an agency.
+                    col-12.col-lg-4
+                        +event-info('ACTIVITIES')
+                            p Here are a few of our favorite local spots.
+                            - var values = ['Climbing Park', 'Bowling', 'Golf', 'Spa center', 'Biking'];
+                            ul
+                                each val in values
+                                    li= val
+                                else
+                                    != null
