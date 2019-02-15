@@ -11,6 +11,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="favicon-16x16.png" type="image/x-icon" sizes="16x16">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700&amp;amp;subset=vietnamese" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&amp;amp;subset=vietnamese" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700&amp;amp;subset=vietnamese" rel="stylesheet">
     <!-- build:css css/style.css-->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
@@ -31,7 +34,15 @@
             </li>
             <li><a href="javascript:void(0)" title="rsvp">rsvp</a>
             </li>
-            <li><a href="javascript:void(0)" title="pages">pages</a>
+            <li class="dropdown"><a href="javascript:void(0)" title="pages">pages</a>
+              <div class="menu-dropdown">
+                <ul>
+                  <li class="active"><a href="javascript:void(0)" title="blogs">blogs</a>
+                  </li>
+                  <li><a href="javascript:void(0)" title="Single Post">Single Post</a>
+                  </li>
+                </ul>
+              </div>
             </li>
           </ul>
           <div class="nav-item">
@@ -331,7 +342,7 @@
               <div class="col-sm-12 col-md-4"><img class="img-responsive img-form" src="../images/event/rsvp-flower.png" alt="rsvp"/>
               </div>
               <div class="col-sm-12 col-md-8">
-                <h2 class="heading-2">RSVP</h2>
+                <h2 class="heading-2 title">RSVP</h2>
                 <h6 class="heading-4 text-uppercase bold">Will you attend?</h6>
                 <form class="rsvp-form" action="">
                   <div class="row">

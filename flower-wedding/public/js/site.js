@@ -20,9 +20,18 @@ $(document).ready(function() {
   // Fill Form
   filledLabels();
 
-  // Add Class Active
+  // Menu Toggle
   let $navToggle = $('.nav-toggle');
-  addClassActive($navToggle);
+  menuToggle($navToggle);
+
+    // Resize
+  $(window).on('load resize', () => {
+    let windowSize = $(window).width();
+    if (windowSize > 992) {    
+      $('.main-menu').removeClass('active');
+      $navToggle.removeClass('active');
+    }
+  });
 });
 
 // CountDown
@@ -186,9 +195,17 @@ checkVal = (el) => {
   }
 }
 
-addClassActive = (el) => {
+menuToggle = (el) => {
   el.on('click', () => {
     el.toggleClass('active');
+    showMobileMenu();
   })
+}
+showMobileMenu = () => {
+  if (!$('.main-menu').hasClass('active')) {
+    $('.main-menu').addClass('active');
+  } else {
+    $('.main-menu').removeClass('active');
+  }
 }
   

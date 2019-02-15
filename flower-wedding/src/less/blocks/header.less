@@ -15,8 +15,7 @@
       border: none; 
       outline: none;
       position: absolute;
-      top: 50%;
-      .transform(translateY(-50%));
+      top: 5px;
       left: auto;
       right: 15px;
       .icon-bar{
@@ -104,6 +103,9 @@
           width: calc(~"100% - 150px");
           .transition(all ease 1s);
         }
+      }
+      .nav-toggle{
+        display: none;
       }          
     }
   }
@@ -123,8 +125,25 @@
           > a{
             color: @geraldine;
           }
+          .menu-dropdown{
+            opacity: 1;
+            .transition(all ease .5s);
+            a{
+              color: @white;
+              &:hover{
+                color: @geraldine;
+              }             
+            }
+          }
         }
-      }
+        .menu-dropdown{
+          a{
+            &:before, &:after{
+              display: none;
+            }
+          }
+        }
+      }      
       a{
         color: @white;
         position: relative;
@@ -203,17 +222,24 @@
          
         }
       }
-    }
+    }    
     .nav-item {      
       li{
         display: inline-block;
         vertical-align: middle;       
       }
     }  
-    @media screen and (max-width: @screen-sm-max) {
-      display: none;
-      .flex-flow(column);
+    @media screen and (max-width: @screen-sm-max) {      
       width: 100%;
+      opacity: 0;
+      height: 0;
+      .flex-flow(column);
+      .transition(all ease .5s);
+      &.active{
+        opacity: 1;
+        height: 100%;
+        .transition(all ease .5s);
+      }
       > ul {
         text-align: center;
         li{
@@ -224,7 +250,18 @@
           a{
             padding: 19px 30px;
           }
+          &:last-child{
+            &:after{
+              top: 30px;
+            }
+          }
         }
+      }
+      .nav-item{
+        text-align: center;
+      }
+      .registry{
+        text-align: center;
       }
     }
     @media screen and (min-width: @screen-md) {
@@ -259,4 +296,27 @@
     }
      
   }  
+}
+.dropdown{
+  .menu-dropdown{    
+    width: 250px;
+    padding: 15px;
+    opacity: 0;
+    .transition(all ease .5s);     
+    @media screen and (min-width: @screen-md) {
+      position: absolute;
+      top: 50px;
+      .border-radius(8px);
+      background-color: rgba(0, 0, 0, 0.75);
+    }
+    li{
+      display: block;
+      margin: 15px 0;
+      &:last-child{
+        &::after{
+          display: none;
+        }
+      }
+    }
+  }
 }
