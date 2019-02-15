@@ -1,0 +1,10 @@
+extends layouts/layout
+
+block vars
+  -title = 'Blog'
+  -bodyClass = 'blog'
+  -menuIndex = 2
+
+block container
+  main.main-container
+    include ./blocks/components/blog-banner
