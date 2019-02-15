@@ -67,6 +67,9 @@
         }
     }
     &-dots{
+        .slick-gallery & {
+            bottom: -50px;
+        }
         li{
             button {
                 &:before{
@@ -79,6 +82,13 @@
                     background-color: @color;
                     
                 }
+            }
+        }
+    }
+    &-gallery{
+        .slick-arrow{
+            @media screen and (max-width: @screen-sm-max) {
+                display: none;
             }
         }
     }

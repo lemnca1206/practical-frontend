@@ -1,18 +1,24 @@
 .container{
     &-content{
         margin: 0 auto;
-        width: 60%;
     }
     &-head, &-content{
         text-align: center;
         position: relative;     
     }
     &-head{
-        max-width: 50%;
         margin: 0 auto;
+    }
+    @media screen and (min-width: @screen-sm) {
+        &-content, &-head{
+            max-width: 70%;
+        }
     }
 }
 .decor-img{
+    @media screen and (max-width: @screen-xs-max) {
+        display: none;
+    }
     position: absolute;
     &.top-left{
         top: -150px;

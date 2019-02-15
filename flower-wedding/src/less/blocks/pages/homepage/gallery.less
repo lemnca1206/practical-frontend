@@ -19,6 +19,9 @@
     position: relative;
     .slick-gallery{
         &_number{
+            @media screen and (max-width: @screen-sm-max) {
+                display: none;
+            }            
             position: absolute;
             left: 50%;
             top: auto;

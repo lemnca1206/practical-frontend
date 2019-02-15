@@ -1,28 +1,32 @@
 .figure-img{
     img {
-        max-width: 300px;
+        @media screen and (min-width: @screen-sm) {
+            max-width: 300px;
+        }
     }
 }
 .love-story{
     position: relative;
-    &:before, &:after{
-        content: "";
-        position: absolute;                
-    }
-    &:before  {
-        background-image: url(../images/decor/ls-flower.png);
-        background-repeat: no-repeat;
-        width: 150px;
-        height: 180px;
-        left: 0;
-        top: 20%;
-    }
-    &:after {
-        background-image: url(../images/decor/ls-flower-prlx.png);
-        background-repeat: no-repeat;
-        width: 170px;
-        height: 130px;
-        left: 100px;
-        top: 40%;
+    @media screen and (min-width: @screen-sm) {
+        &:before, &:after{
+            content: "";
+            position: absolute;                
+        }
+        &:before  {
+            background-image: url(../images/decor/ls-flower.png);
+            background-repeat: no-repeat;
+            width: 150px;
+            height: 180px;
+            left: 0;
+            top: 20%;
+        }
+        &:after {
+            background-image: url(../images/decor/ls-flower-prlx.png);
+            background-repeat: no-repeat;
+            width: 170px;
+            height: 130px;
+            left: 100px;
+            top: 40%;
+        }
     }
 }

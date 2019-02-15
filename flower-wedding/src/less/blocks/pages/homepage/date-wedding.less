@@ -1,29 +1,34 @@
 .container {
     &-head {
-        .date-wedding &{   
-            max-width: 60%;         
+        .date-wedding &{    
             margin-bottom: 40px;
-            &:before, &:after{
-                position: absolute;
-                content: '';
-                background-size: 150px;
-                width: 150px;
-                height: 200px;
-                top: 50%;
-                .transform(translateY(-50%));
+            max-width: 100%;
+            @media screen and (min-width: @screen-md) {
+                max-width: 70%;
             }
-            &:before {
-                background-image: url(../images/decor/leaves-left.png);
-                background-position: center center;
-                background-repeat: no-repeat;
-                left: 0;
-            }
-            &:after {
-                background-image: url(../images/decor/leaves-right.png);
-                background-position: center center;
-                background-repeat: no-repeat;
-                left: auto;
-                right: 0;
+            @media screen and (min-width: @screen-sm) {
+                &:before, &:after{
+                    position: absolute;
+                    content: '';
+                    background-size: 150px;
+                    width: 150px;
+                    height: 200px;
+                    top: 50%;
+                    .transform(translateY(-50%));
+                }
+                &:before {
+                    background-image: url(../images/decor/leaves-left.png);
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    left: 0;
+                }
+                &:after {
+                    background-image: url(../images/decor/leaves-right.png);
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    left: auto;
+                    right: 0;
+                }
             }
         }
     }
@@ -35,9 +40,15 @@
         display: inline-block;
         vertical-align: middle;
         text-align: center;
-        padding: 0 30px;
+        padding: 0 15px;
         span{
-            font-size: 48px;
+            font-size: 30px;
+        }        
+        @media screen and (min-width: @screen-sm) {
+            padding: 0 30px;        
+            span{
+                font-size: 48px;
+            }
         }
     }
 }

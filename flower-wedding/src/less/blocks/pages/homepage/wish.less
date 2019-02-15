@@ -3,7 +3,9 @@
         &_content{
             margin: 0 auto;
             text-align: center;
-            width: 60%;
+            @media screen and (min-width: @screen-sm) {
+                width: 60%;
+            }
             .author{
                 font-size: 30px;
                 margin-bottom: 40px;

@@ -21,5 +21,4 @@ Thumbs.db
 
 # NPM packages folder.
 node_modules/
-/public
 /.idea

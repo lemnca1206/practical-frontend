@@ -1,6 +1,9 @@
 .main-footer{
     background-image: url('../images/footer.jpg');
     position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
     &:before{
         content: '';
         background: rgba(0, 0, 0, 0.5);
@@ -9,5 +12,65 @@
         height: 100%;
         position: absolute;
         top: 0;
+    }
+    .contact{
+        margin: 50px 0;
+    }
+    .testimonials{
+        padding-top: 20px;
+    }
+    .copyright{
+        position: relative;
+    }
+    .ft-menu{
+        @media screen and (min-width: @screen-sm) {
+            .flex-block();
+            .justify-content(center);
+        }
+        padding: 20px 0;        
+        border: 1px solid @white;
+        a{
+            display: block;
+            color: @white;
+            font-size: 18px;
+            padding: 5px 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            &:hover {
+                color: @geraldine;
+            }
+        }
+    }
+}
+.box{
+    &-contact{
+        .flex-block();
+        .flex-flow(column);
+        .justify-content(center);
+        .align-items(center);
+        padding: 20px 0;
+        border: 1px solid @white;
+        border-top: none;        
+        span{
+            margin: 10px 0;
+        }
+    }
+    &-wrapper{
+        @media screen and (min-width: @screen-md) {
+            .box-contact{
+                margin-left: -15px;
+                margin-right: -15px;
+            }
+            &:first-child{
+                .box-contact{
+                    margin-left: 0;
+                }
+            }
+            &:last-child {
+                .box-contact{
+                    margin-right: 0;
+                }
+            }
+        }
     }
 }

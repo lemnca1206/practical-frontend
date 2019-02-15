@@ -28,9 +28,16 @@
         .box-shadow(none);
     }
     .button-submit{
-        position: absolute;
-        right: 0;
-        bottom: 0;
+        margin-top: 15px;
+        @media screen and (min-width: @screen-md) {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+    }    
+}
+.img-form{
+    @media screen and (max-width: @screen-sm-max) {
+        display: none;
     }
-    
 }
