@@ -53,9 +53,6 @@ a {
     &-2 {
         font-size: 44px;
         margin: 0 0 20px;
-        @media screen and (max-width: @screen-xs-max) {
-            font-size: 30px;
-        }
         &.title{
             font-family: @font-playFair;
         }
@@ -73,6 +70,7 @@ a {
     &-5 {
         font-size: 25px;
         font-family: @font-playFair;
+        
     }
     &-sub {
         font-size: 14px;
@@ -82,6 +80,17 @@ a {
     }
     &-3,&-4{
         font-family: @font-openSans;
+    }
+    @media screen and (max-width: @screen-xs-max) {
+        &-1{
+            font-size: 35px;
+        }
+        &-2{
+            font-size: 30px;
+        }
+        &-5 {
+            font-size: 15px;
+        }
     }
 }
 

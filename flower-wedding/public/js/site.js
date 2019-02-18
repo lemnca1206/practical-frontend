@@ -51,24 +51,26 @@ getTimeRemaining = (endtime) => {
 };
 initializeClock = (id, endtime) => {
   let clock = document.getElementById(id);
-  let daysSpan = clock.querySelector('.days');
-  let hoursSpan = clock.querySelector('.hours');
-  let minutesSpan = clock.querySelector('.minutes');
-  let secondsSpan = clock.querySelector('.seconds');
-  updateClock = () => {
-      let t = getTimeRemaining(endtime);
-  
-      daysSpan.innerHTML = t.days;
-      hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-      minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-      secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-  
-      if (t.total <= 0) {
-        clearInterval(timeinterval);
+  if(clock) {
+    let daysSpan = clock.querySelector('.days');
+    let hoursSpan = clock.querySelector('.hours');
+    let minutesSpan = clock.querySelector('.minutes');
+    let secondsSpan = clock.querySelector('.seconds');
+    updateClock = () => {
+        let t = getTimeRemaining(endtime);
+    
+        daysSpan.innerHTML = t.days;
+        hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+        minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+        secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+    
+        if (t.total <= 0) {
+          clearInterval(timeinterval);
+        }
       }
-    }
-  updateClock();
-  let timeinterval = setInterval(updateClock, 1000);
+    updateClock();
+    let timeinterval = setInterval(updateClock, 1000);
+  }
 };
 
 // Accordion Tabs
