@@ -1,0 +1,36 @@
+.pagination {
+    ul {
+        .clearfix();
+        list-style: none;
+        padding-left: 0;
+        border: 1px solid #ccc;
+        .page-item{
+            float: left;
+            background-color: @white;
+            border-right: 1px solid #ccc;
+            cursor: pointer;
+            &:last-child{
+                border: none;
+            }
+            &.disabled {
+                span{
+                    color: rgba(0,0,0,.55)
+                }
+                cursor: auto;
+            }
+            &.active|{
+                background-color: @geraldine;
+                span {
+                    color: @white;
+                }
+            }           
+            span{
+                display: block;
+                padding: 10px;   
+                min-width: 40px;
+                text-align: center;
+                color: @geraldine;
+            }
+        }
+    }
+}

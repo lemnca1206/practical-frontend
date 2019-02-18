@@ -23,3 +23,22 @@ mixin event-info (title)
             block
         else
             !=text
+
+mixin card (imgSrc, title, description)
+    .card
+        +link('post', 'javascript:void(0)')
+            .card-image(style="background-image: url(" + imgSrc + ")")
+        .card-body
+            +link('head-post', 'javascript:void(0)')
+                h5.card-title!= title
+            .tag
+                +link('tag', 'javascript:void(0)','Love')
+                +link('tag', 'javascript:void(0)', 'Wedding')
+            p!= description
+
+mixin card-category (imgSrc, alt, title, author)    
+    .card-category_item
+        +img(alt, imgSrc).img-64
+        .meta-data
+            +link('post-title', 'javascript:void(0)', title)
+            p!= "By"+ " " + author

@@ -6,3 +6,8 @@ mixin link(title, href, text)
       block
     else
       !=text
+
+mixin category-link (category, number)
+  li
+    a(href="javascript:void(0)", title="Category")!= category
+        span!= number
