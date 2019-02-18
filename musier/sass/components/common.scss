@@ -1,0 +1,56 @@
+html, body {
+    font-family: $font-nunito;
+}
+// Modified a
+a{
+    &:hover, &:focus, &:visited{
+        text-decoration: none;
+        outline: none
+    }
+}
+
+// Typography
+.heading{
+    &-title{
+        font-size: 80px;
+    }
+    &-subtitle {
+        font-size: 18px;
+        letter-spacing: 5px;
+        margin-top: 10px;
+    }
+    &-3{
+        font-size: 50px;        
+    }
+    &-4{
+        font-size: 25px;
+    }
+    &-title, &-subtitle, &-3, &-4{
+        text-transform: uppercase;
+    }
+}
+.semi-bold{
+    font-weight: 500!important;
+}
+.bold{
+    font-weight: 600!important;
+}
+.xtra-bold{
+    font-weight: 700!important;
+}
+.xtra-black{
+    font-weight: 900!important;
+}
+
+// Color
+.cl{
+    &-white{
+        color: $white!important;
+    }
+}
+
+// Structure
+.section-box {
+    padding-top: 100px;
+    padding-bottom: 100px; 
+}
