@@ -36,3 +36,32 @@
         }    
     }
 }
+.blog-detail{
+    &_content{
+        .title{
+            margin-bottom: 50px;
+        }
+        &__tags{
+            span{
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 5px;  
+            }
+            .tag-link{
+                font-size: 14px;
+                color: rgba(0,0,0,0.75);
+                &:hover {
+                    color: @geraldine;
+                }
+            }
+        }
+        &__text{
+            margin: 15px 0;
+            blockquote{
+                font-style: italic;
+                font-weight: 600;
+                font-family: @font-playFair;
+            }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+extends layouts/layout
+
+block vars
+  -title = 'Single Post'
+  -bodyClass = 'post'
+  -menuIndex = 1
+  -nameTitle = "Single Post"
+
+block container
+  main.main-container
+    include ./blocks/components/blog-banner
+    include ./blocks/pages/blog/single-post

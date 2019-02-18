@@ -1,7 +1,11 @@
+-nameTitle
+-description
+-if (typeof(nameTitle) === 'undefined') nameTitle = "Our Blog"
+-if (typeof(description) === 'undefined') description = "Find our best stories in these articles. Enjoy the reading and our love"
 section.blog-banner-section
     .blog-banner-wrapper    
         .blog-image
             +img('blog-image', 'images/banner/banner-blog.jpg').img-responsive
         .blog-content.color-white
-            h2.heading-1.title Our Blog
-            p.heading-5 Find our best stories in these articles. Enjoy the reading and our love
+            h2.heading-1.title!= nameTitle
+            p.heading-5!= description
