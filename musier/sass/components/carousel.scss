@@ -2,6 +2,9 @@
     position: relative;
     .header-section &{
         padding: 60px 0 60px;
+        @media screen and (max-width: $screen-xs-max){
+            padding: 20px 0;
+        }
     }
     .overlay{
         background: rgba(255, 255, 255, 0.2);
@@ -9,15 +12,12 @@
 }
 .disc-carousel{
     &_item{
-        .item{
-            &-img, &-content{
-                display: inline-block;
-                vertical-align: middle;
-            }
-            &-img{
-                max-width: 150px;
+        .item{            
+            &-img{                
                 position: relative;
-                margin-right: 30px;
+                img{
+                    width: 100%;
+                }               
                 .v-play{
                     position: absolute;
                     top: 50%;
@@ -26,13 +26,52 @@
                     color: $white;
                 }
             }
-            &-content{
-                width: calc(100% - 250px);
+            &-content{                
                 .text{
                     font-size: 14px;
                     color: rgba(255, 255, 255, 0.7);
                 }
             }
+            @media screen and (min-width: $screen-sm) {
+                &-img, &-content{
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+                &-img{
+                    max-width: 150px;
+                    margin-right: 30px;
+                }
+                &-content{
+                    width: calc(100% - 250px);
+                }
+            }
+            @media screen and (max-width: $screen-xs-max) {
+                &-content{
+                    margin-top: 20px;
+                }
+            }
         }
+    }
+}
+.gallery-carousel{
+    &_item{
+        .gallery-carousel &{
+            img{
+                width: 100%;
+            }
+        }
+    }
+    &_nav{
+        position: absolute;
+        top: auto;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        .gallery-carousel_item{
+            margin: 0 10px;
+        }
+        @media screen and (max-width: $screen-xs-max) {
+            display: none;
+        }     
     }
 }

@@ -1,22 +1,65 @@
 .header-section {
     .text-banner{
-        text-align: center;
-        position: absolute;
-        top: 50%;
-        left: 50%;        
-        z-index: 5;
-        transform: translate(-50%,-50%);
+        text-align: center;               
+        z-index: 5;        
         color: $white;
-        width: 100%;
-        .heading{
-            &-title{
-                letter-spacing: 10px
+        width: 100%;        
+        @media screen and (max-width: $screen-xs-max) {
+            margin-bottom: 100px;
+            position: relative;
+        }
+        @media screen and (min-width: $screen-sm) {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            .heading{
+                &-title{
+                    letter-spacing: 10px
+                }
             }
         }
     }
 }
 .section-title{
     text-align: center;    
+}
+.album-wrapper {
+    .box-content{
+        align-self: center;
+        .social-links{
+            li{
+                margin-right: 20px;
+                a{
+                    color: $black;
+                }
+            }
+        }
+    }
+}
+// Gallery
+.discography-section{
+    padding-bottom: 50px;
+    padding-top: 50px;
+    .carousel-wrapper{        
+        margin-top: 50px;
+    }
+    @media screen and (min-width: $screen-lg) {
+        padding-top: 100px;
+        padding-bottom: 25%;
+        .carousel-wrapper{
+            position: absolute;
+            width: 100%;
+        }
+    }
+}
+.gallery-wrapper{
+    position: relative
+}
+.band-section{
+    @media screen and (min-width: $screen-lg) {
+        padding-top: 250px;
+    }
 }
 // Advertisement
 .advertise-wrapper {
@@ -25,8 +68,10 @@
     }
     .notice{
         margin: 25px 0;
-        font-size: 50px;
         text-transform: uppercase;
+        @media screen and (min-width: $screen-sm) {
+            font-size: 50px;
+        }
     }
     .btn-buy {
         padding: 15px 30px;        
@@ -68,8 +113,20 @@
             left: auto;
             right: 0;
             border: none;
-            min-width: 180px;
+            min-width: 120px;
             height: 60px;
+        }
+        align-self: center;
+        width: 100%;
+        @media screen and (max-width: $screen-sm-max) {
+            margin-top: 20px;
+        }
+        @media only screen and (max-width: 330px) {
+            .btn-join {
+                position: static;
+                width: 100%;
+                margin-top: 10px;
+            }
         }
     }
 }

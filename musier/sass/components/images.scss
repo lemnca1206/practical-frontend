@@ -16,3 +16,36 @@
     background: linear-gradient(-40deg, #6501a1 0%, #a730b2 100%);
     opacity: .7;
 }
+.list{
+    margin: 20px 0;
+    .track{
+        margin: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        a{  
+            position: relative;
+            color: $black;
+            background-color: #f8f9fa;
+            z-index: 1;
+            padding-right: 20px;
+        }
+        .duration{
+            position: relative;
+            background-color: #f8f9fa;
+            z-index: 1;
+            padding-left: 20px;
+        }
+        &:after{
+            content: '';
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: $black;
+
+        }
+    }
+}

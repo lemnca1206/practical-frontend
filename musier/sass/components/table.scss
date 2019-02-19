@@ -1,6 +1,11 @@
 .table-container{
     padding: 25px 50px 10px;
     background: rgba(107, 5, 163, 0.6);
+    .table{
+        @media screen and (max-width: $screen-xs-max) {
+            min-width: 550px;
+        }
+    }
     tbody{
         tr{
             &:first-child{

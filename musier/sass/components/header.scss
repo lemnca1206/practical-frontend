@@ -10,6 +10,49 @@
         border-bottom: 0;
         transition: all ease-in-out .5s;
     }
+    @media screen and (max-width: $screen-sm-max) {
+        background: linear-gradient(0deg, #6501a1 0%, #a730b2 100%);
+        border-bottom: 0;
+        .navbar {
+            padding: 0;
+            &-brand{
+                width: 100px;
+            }
+        }
+    }
+}
+.navbar{
+    &-toggler{
+        border: 1px solid #f8f9fa;
+        padding: 5px 10px;
+        transition: all ease .5s;
+        &.active{
+            span{
+                position: relative;
+                transition: all ease .5s;
+                &:first-child{
+                    transform: rotate(45deg);
+                    top: 8px;
+                    left: 1px;
+                }
+                &:nth-child(2) {
+                    opacity: 0;
+                }
+                &:last-child{
+                    transform: rotate(-45deg);
+                    top: -  8px;
+                    left: 1px;
+                }    
+            }
+        }    
+        span{
+            display: block;
+            height: 3px;
+            width: 30px;
+            background-color: #f8f9fa;
+            margin: 5px 0;
+        }
+    }   
 }
 .nav-item{
     a{
