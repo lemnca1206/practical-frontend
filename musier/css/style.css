@@ -328,29 +328,32 @@ a:hover, a:focus, a:visited {
         .main-header .navbar-brand {
           width: 100px; } }
 
-.navbar-toggler {
-  border: 1px solid #f8f9fa;
-  padding: 5px 10px;
-  transition: all ease .5s; }
-  .navbar-toggler.active span {
-    position: relative;
+.navbar {
+  padding-left: 0;
+  padding-right: 0; }
+  .navbar-toggler {
+    border: 1px solid #f8f9fa;
+    padding: 5px 10px;
     transition: all ease .5s; }
-    .navbar-toggler.active span:first-child {
-      transform: rotate(45deg);
-      top: 8px;
-      left: 1px; }
-    .navbar-toggler.active span:nth-child(2) {
-      opacity: 0; }
-    .navbar-toggler.active span:last-child {
-      transform: rotate(-45deg);
-      top: -8px;
-      left: 1px; }
-  .navbar-toggler span {
-    display: block;
-    height: 3px;
-    width: 30px;
-    background-color: #f8f9fa;
-    margin: 5px 0; }
+    .navbar-toggler.active span {
+      position: relative;
+      transition: all ease .5s; }
+      .navbar-toggler.active span:first-child {
+        transform: rotate(45deg);
+        top: 8px;
+        left: 1px; }
+      .navbar-toggler.active span:nth-child(2) {
+        opacity: 0; }
+      .navbar-toggler.active span:last-child {
+        transform: rotate(-45deg);
+        top: -8px;
+        left: 1px; }
+    .navbar-toggler span {
+      display: block;
+      height: 3px;
+      width: 30px;
+      background-color: #f8f9fa;
+      margin: 5px 0; }
 
 .nav-item a {
   color: rgba(255, 255, 255, 0.65); }
@@ -601,6 +604,35 @@ a:hover, a:focus, a:visited {
     font-size: 16px;
     padding-right: 0;
     padding-left: 10px; }
+
+.breadcrumb-area {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  margin-top: 50px; }
+  .breadcrumb-area .page-list {
+    display: block; }
+    .breadcrumb-area .page-list li {
+      display: inline-block;
+      vertical-align: middle;
+      position: relative;
+      padding-right: 20px; }
+      .breadcrumb-area .page-list li:after {
+        content: '>';
+        position: absolute;
+        left: auto;
+        right: 0;
+        color: #ccc;
+        top: 5px;
+        font-size: 14px; }
+      .breadcrumb-area .page-list li:last-child:after {
+        content: ''; }
+      .breadcrumb-area .page-list li.active a {
+        color: #fff; }
+      .breadcrumb-area .page-list li a {
+        color: #ccc;
+        font-size: 15px;
+        font-weight: 600; }
 
 .header-section .text-banner {
   text-align: center;

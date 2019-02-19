@@ -1,0 +1,41 @@
+.breadcrumb{
+    &-area{
+        background-color: transparent;
+        padding: 0;
+        border: none;
+        margin-top: 50px;
+        .page-list{
+            display: block;
+            li{
+                display: inline-block;
+                vertical-align: middle;
+                position: relative;
+                padding-right: 20px;
+                &:after{
+                    content: '>';
+                    position: absolute;
+                    left: auto;
+                    right: 0;
+                    color: #ccc;
+                    top: 5px;
+                    font-size: 14px;
+                }
+                &:last-child{
+                    &:after {
+                        content: '';
+                    }
+                }
+                &.active{
+                    a{
+                        color: $white;
+                    }
+                }
+                a{
+                    color: #ccc;
+                    font-size: 15px;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
