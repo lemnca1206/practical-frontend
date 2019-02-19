@@ -4,9 +4,11 @@
     width: 100%;
     background-color: transparent;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all ease-in-out .5s;
     &.sticky {
         background: linear-gradient(0deg, #6501a1 0%, #a730b2 100%);
         border-bottom: 0;
+        transition: all ease-in-out .5s;
     }
 }
 .nav-item{

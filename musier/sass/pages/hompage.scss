@@ -1,5 +1,4 @@
 .header-section {
-    position: relative;
     .text-banner{
         text-align: center;
         position: absolute;
@@ -8,18 +7,69 @@
         z-index: 5;
         transform: translate(-50%,-50%);
         color: $white;
+        width: 100%;
         .heading{
             &-title{
-                letter-spacing: 15px
+                letter-spacing: 10px
             }
         }
     }
 }
 .section-title{
-    text-align: center;
-    .heading-3{
-        background: -webkit-linear-gradient(0deg, #6501a1 0%, #a730b2 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+    text-align: center;    
+}
+// Advertisement
+.advertise-wrapper {
+    .heading-subtitle {
+        font-size: 14px;
+    }
+    .notice{
+        margin: 25px 0;
+        font-size: 50px;
+        text-transform: uppercase;
+    }
+    .btn-buy {
+        padding: 15px 30px;        
+        &:hover {
+            background-color: $lucky-point;
+            span{
+                background: -webkit-linear-gradient(0deg, #fff 0%, #fff 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+    }
+}
+// Form join
+.form{
+    &-join{
+        form{
+            width: 100%;
+            position: relative;
+        }
+        input{
+            height: 60px;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 5px;
+            border: 0px;
+            box-shadow: 0px 5px 100px 0px rgba(37, 46, 89, 0.1);
+            padding: 0px 30px;
+            font-size: 16px;
+            color: #252e59;
+            box-shadow: none;
+            &:focus{
+                box-shadow: none;
+            }
+        }
+        .btn-join{
+            position: absolute;
+            top: 0;
+            left: auto;
+            right: 0;
+            border: none;
+            min-width: 180px;
+            height: 60px;
+        }
     }
 }

@@ -1,0 +1,19 @@
+.table-container{
+    padding: 25px 50px 10px;
+    background: rgba(107, 5, 163, 0.6);
+    tbody{
+        tr{
+            &:first-child{
+                td{
+                    border-top: none
+                }
+            }
+        }
+        td{
+            border-top-color: rgba(255, 255, 255, 0.8);
+            font-size: 16px;
+            padding-right: 0;
+            padding-left: 10px;
+        }
+    }
+}

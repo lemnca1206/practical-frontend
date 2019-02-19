@@ -1,0 +1,29 @@
+.main-footer{
+    padding: 60px 0;
+    background: linear-gradient(0deg, #6501a1 0%, #a730b2 100%);
+    .footer{
+        &-widget{            
+            text-align: right;
+            ul{
+                margin-top: 20px;
+            }
+            li{
+                &:last-child{
+                    a{
+                        margin-right: 0;
+                    }
+                }
+                a{
+                    margin-right: 15px;
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+.social-links{    
+    li{
+        display: inline-block;
+        vertical-align: middle;        
+    }
+}
