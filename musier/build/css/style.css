@@ -546,6 +546,9 @@ a:hover, a:focus, a:visited {
 
 .box-content {
   width: 100%; }
+  .box-content p {
+    font-size: 16px;
+    margin-bottom: 10px; }
 
 .btn {
   font-size: 16px;
