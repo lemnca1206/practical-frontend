@@ -61,4 +61,27 @@
             color: rgba(255, 255, 255, 0.65);
         }
     }
+    &.dropdown{
+        &:hover{
+            .dropdown-menu{
+                opacity: 1;
+                transition: all ease-in-out .5s;
+            }
+        }
+    }
+    .dropdown-menu{
+        display: block;
+        opacity: 0;
+        padding: 0;
+        transition: all ease-in-out .5s;
+        .dropdown-item{
+            color: $lucky-point;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            &:hover{
+                color: $white;
+                background-color: $lucky-point
+            }
+        }
+    }
 }
