@@ -23,6 +23,9 @@
         display: flex;
         justify-content: space-between;
         position: relative;
+        @media screen and (max-width: $screen-xs-max) {
+            font-size: 14px;
+        }
         a{  
             position: relative;
             color: $black;

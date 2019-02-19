@@ -423,6 +423,9 @@ a:hover, a:focus, a:visited {
     display: flex;
     justify-content: space-between;
     position: relative; }
+    @media screen and (max-width: 767px) {
+      .list .track {
+        font-size: 14px; } }
     .list .track a {
       position: relative;
       color: #000;
@@ -657,6 +660,12 @@ a:hover, a:focus, a:visited {
 
 .section-title {
   text-align: center; }
+
+.album-wrapper-item {
+  margin-bottom: 50px; }
+  @media screen and (max-width: 767px) {
+    .album-wrapper-item {
+      margin-bottom: 25px; } }
 
 .album-wrapper .box-content {
   align-self: center; }
