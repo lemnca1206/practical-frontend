@@ -54,7 +54,7 @@ carousel = () => {
 };
 fixedNavbar = () => {
     let $window = $(window);
-    const offset = 100;
+    const offset = 50;
     $window.bind('scroll', () => {
         if ($window.scrollTop() > offset) {
             $('.main-header').addClass('sticky');

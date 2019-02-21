@@ -49,3 +49,11 @@
         transform: rotate(-45deg);
     }
 }
+.read-more{
+    text-transform: capitalize;
+    color: $lucky-point;
+    font-size: 14px;
+    &:hover{
+        color: $pelorous;
+    }
+}

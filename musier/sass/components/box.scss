@@ -3,6 +3,7 @@
         margin-top: 50px;
         margin-bottom: 50px;
         &_blogItem{
+            margin-bottom: 30px;
             &:hover{
                 .thumb{
                     -webkit-filter: grayscale(100%);
@@ -35,41 +36,60 @@
                     &:hover {
                         color: $pelorous;
                     }
-                }
-                .text{
-                    margin: 20px 0;
-                    p{
-                        font-size: 16px;
-                    }
-                }
-                .read-more{
-                    text-transform: capitalize;
-                    color: $lucky-point;
-                    font-size: 14px;
-                    &:hover{
-                        color: $pelorous;
-                    }
-                }
-            }
-            .name, .role{
-                font-weight: 600;
+                }                
             }
             .name{
                 font-size: 25px;
+                font-weight: 600;
             }
             .role {
                 font-size: 18px;
+                font-weight: 600;
             }
             @media screen and (max-width: 991px) {
                 margin-bottom: 30px;
             }
         } 
     }
-    &-content {
-        width: 100%;
-        p{
-            font-size: 16px;
-            margin-bottom: 10px;
+    &-img{
+        img{
+            width: 100%;
         }
     }
+    &-content {
+        width: 100%;
+        align-self: center;
+        div{
+            &:only-child{
+                margin: 0;
+            }
+        }
+        
+    }
+    &-post{
+        margin-bottom: 60px;
+    }
+    @media screen and (max-width: $screen-sm-max) {
+        &-content{
+            margin-top: 20px;
+        }
+        &-post{            
+            margin-bottom: 15px;            
+        }
+    }
+}
+.meta-data{
+    font-size: 14px;
+    font-weight: 600;
+    color: $pelorous;
+    margin: 15px 0;
+    .item{
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 5px;
+    }
+}
+.text{
+    font-size: 16px;
+    margin: 20px 0; 
 }
