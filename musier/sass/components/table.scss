@@ -22,3 +22,89 @@
         }
     }
 }
+.contact-container {
+    @media screen and (max-width: $screen-sm-max) {
+        margin-bottom: 30px;
+    }
+}
+.info-list{
+    li {
+        margin: 20px 0;
+    }
+    li{
+        &:first-child {
+            margin-top: 50px;
+        }
+    }
+}
+.single-item{    
+    .icon, .content {
+        display: inline-block;
+        vertical-align: top;
+    }
+    &.icon-phone{
+        .icon{
+            color: $white;
+            background-color: $pelorous;
+        }
+    }
+    .icon{
+        width: 50px;
+        height: 50px;
+        position: relative;
+        border: 1px dotted #ccc;
+        border-radius: 50%;
+        color: $pelorous;
+        margin-right: 20px;
+        i { 
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);            
+        }
+
+    }
+    .content {
+        width: calc(100% - 80px);
+        font-size: 16px;
+        span{
+            display: block;
+        }
+    }
+}
+.form-contact{
+    margin-top: 50px;
+    .form-control {
+        background-color: transparent;
+        font-size: 16px;        
+        &:focus {
+            background: transparent;
+            box-shadow: none;
+            border: 1px solid #ced4da
+        }
+    }
+    .form-groups{
+        &:first-child{
+            margin-top: 0;
+        }
+        input{
+            height: 50px;
+        }
+        margin: 15px 0;
+    }
+    .btn-submit  {
+        margin-left: 15px;
+        width: 180px;
+        height: 60px;
+        border: none;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 3px;
+        color: #fff;
+    }
+}
+.contact-map{
+    iframe {
+        width: 100%;
+    }
+}
