@@ -31,6 +31,8 @@ gulp.task('build', [], function() {
         .pipe(gulp.dest('build/fonts'));
     gulp.src("js/*.js")
         .pipe(gulp.dest('build/js'));
+    gulp.src("images/**/*")
+        .pipe(gulp.dest('build/images'));
     gulp.src("**.html")
         .pipe(gulp.dest('build/'));
 });
