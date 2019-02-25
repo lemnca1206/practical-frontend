@@ -35,6 +35,18 @@
             color: $white;
             background: linear-gradient(90deg, #6501a1 0%, #a730b2 100%);            
         }
+        .searchbar-box & {
+            position: absolute;
+            top: 0;
+            left: auto;
+            right: 0;
+            height: 100%;
+            border-radius: 0;
+            background: $pelorous;
+            &:hover {
+                background: $lucky-point;
+            }
+        }
     }
     &:hover{
         transition: 0.3s ease-out;

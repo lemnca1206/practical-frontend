@@ -88,8 +88,176 @@
         vertical-align: middle;
         margin-right: 5px;
     }
+    .heading &{
+        color: $lucky-point;
+        .item {
+            margin-right: 20px;
+            @media screen and (max-width: $screen-xs-max) {
+                margin-right: 10px;
+            }
+        }
+    }
 }
-.text{
+.widget{
+    margin-bottom: 50px;
+    @media screen and (max-width: $screen-sm-max) {
+        margin-bottom: 20px;
+    }
+    .footing &{
+        p{
+            font-size: 15px;
+        }
+    }
+    .title{
+        font-size: 22px;
+        position: relative;
+        margin-bottom: 40px;
+        &:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            left: 0;
+            border: 2px solid $black;
+            bottom: -15px;
+        }
+    }
+    .list{
+        li {
+            a{
+                color: $black;
+                font-size: 15px;
+            }
+            i{
+                margin-right: 10px;
+            }
+            &:hover {
+                a{
+                    color: $pelorous
+                }
+            }
+        }
+    }
+    .media{
+        font-size: 16px;
+        position: relative;
+        margin-bottom: 30px;
+        .meta-data{
+            color: rgba(0,0,0,.7);
+            margin: 0;
+            margin-bottom: 10px;
+        }
+        h5{
+            @media screen and (max-width:$screen-sm-max) {
+                font-size: 18px;
+            }
+        }
+        .btn-reply{
+            position: absolute;
+            top: 0;
+            left: auto;
+            right: 0;
+            color: rgba(0,0,0,.7);
+            &:hover{
+                color: $pelorous;
+            }
+        }
+    }
+}
+.tag-item{
+    a{        
+        &:hover {            
+            span{
+                color: $white;
+                background-color: $pelorous;
+                transition: all ease .3s;
+            }
+        }
+    }
+    span {
+        border: 1px solid #ccc;
+        display: inline-block;
+        vertical-align: middle;
+        margin-bottom: 5px;
+        padding:7px 15px;
+        border-radius: 5px;
+        font-size: 15px;
+        color: $black;
+        transition: all ease .3s;
+    }
+    .footing &{
+        p{
+            display: inline-block;
+            vertical-align: middle;
+        }
+        span{
+            margin: 0 10px;
+        }
+    }
+}
+.pagination{
+    display: block;
+    &-wrapper {
+        text-align: center;
+        @media screen and (max-width: $screen-sm-max) {
+            margin-bottom: 50px;
+        }
+    }
+    .page-item{
+        vertical-align: middle;
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        position: relative;
+        border: 1px solid #ccc;      
+        border-radius: 5px;
+        &:first-child, &:last-child {
+            span{
+                font-size: 12px;
+                font-weight: 600;
+            }
+        }
+        &:hover {
+            transition: all ease .3s;
+            background-color: $lucky-point; 
+            span{
+                transition: all ease .3s;
+                color: $white;
+            }
+        }
+        &.active{
+            background-color: $lucky-point; 
+            span{
+                color: $white;
+            }
+        }
+        a{           
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        span {
+            font-size: 15px;
+            color: $lucky-point;
+            transition: all ease .3s;
+        }
+    }
+}
+.text {
     font-size: 16px;
-    margin: 20px 0; 
+    margin: 20px 0;
+    blockquote {
+        margin: 25px 0;
+        padding: 25px;
+        background-color: $pelorous;
+        color: $white;
+        border-radius: 5px; 
+        p{
+            margin-bottom: 15px;
+        }
+        .author{
+            font-size: 20px;            
+        }
+        
+    }
 }

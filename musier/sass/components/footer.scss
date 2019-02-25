@@ -35,4 +35,22 @@
         display: inline-block;
         vertical-align: middle;        
     }
+    .footing & {
+        li{
+            margin: 0 7px;
+            &:first-child{
+                margin-left: 0;
+            }
+            a{
+
+                color: $black;
+            }
+        }
+    }
+}
+.footing {
+    @media screen and (min-width: $screen-sm) {
+        display: flex;
+        justify-content: space-between;
+    }
 }

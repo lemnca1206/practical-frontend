@@ -72,8 +72,11 @@
         }
     }
 }
-.form-contact{
-    margin-top: 50px;
+.form{
+    margin-top: 25px;
+    &-contact {
+        margin-top: 50px;
+    }
     .form-control {
         background-color: transparent;
         font-size: 16px;        
