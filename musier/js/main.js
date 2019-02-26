@@ -9,10 +9,18 @@ $(document).ready(function(){
     // FilterImage
     filterImage();
     // AddClass for menu filter
+    // veno box active
+    $('.venobox').venobox();
     let portfoliofilterMenu = '.filtr-nav ul li';
     $(document).on('click', portfoliofilterMenu, function () {
         $(this).siblings().removeClass('active');
         $(this).addClass('active');
+    });
+    $(window).on('load', function () {
+        setTimeout( () => {
+            $('body').removeClass('loaded')
+        },1500) 
+
     });
 });
 

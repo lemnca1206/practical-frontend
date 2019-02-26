@@ -6,7 +6,22 @@ $(document).ready(function(){
     // Back to Top
     backToTop();
     showMobileMenu();
-   
+    // FilterImage
+    filterImage();
+    // AddClass for menu filter
+    // veno box active
+    $('.venobox').venobox();
+    let portfoliofilterMenu = '.filtr-nav ul li';
+    $(document).on('click', portfoliofilterMenu, function () {
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+    });
+    $(window).on('load', function () {
+        setTimeout( () => {
+            $('body').removeClass('loaded')
+        },1500) 
+
+    });
 });
 
 carousel = () => {
@@ -68,7 +83,7 @@ backToTop = () => {
         e.preventDefault();
         $('html, body').animate({scrollTop: 0}, 3000);
     })
-}
+};
 
 showMobileMenu = () => {
     let $navbarToggler = $('.navbar-toggler');
@@ -86,4 +101,26 @@ showMobileMenu = () => {
             $navbarMenu.removeClass('show');
         }
     })
-}
+};
+
+filterImage = () => {
+    const PortflioContainer = $('.filtr-container');
+    if (PortflioContainer.length > 0) {
+        PortflioContainer.imagesLoaded(function () {
+            let latestWorkMasonry = PortflioContainer.isotope({
+                itemSelector: '.grid-size',
+                percentPosition: true,
+                gutter: 0,
+                masonry: {
+                    columnWidth: 0
+                }
+            });
+            $(document).on('click', '.filtr-nav ul li', function () {
+                const filterValue = $(this).attr('data-filter');
+                latestWorkMasonry.isotope({
+                    filter: filterValue
+                });
+            });
+        });
+    }
+};
