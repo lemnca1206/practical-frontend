@@ -9,6 +9,7 @@
         background: linear-gradient(0deg, #6501a1 0%, #a730b2 100%);
         border-bottom: 0;
         transition: all ease-in-out .5s;
+        
     }
     @media screen and (max-width: $screen-sm-max) {
         background: linear-gradient(0deg, #6501a1 0%, #a730b2 100%);
@@ -55,6 +56,11 @@
             margin: 5px 0;
         }
     }   
+    &-collapse{
+        &.show{
+            height: 100vh;
+        }
+    }
 }
 .nav-item{
     a{
@@ -66,13 +72,14 @@
     &.dropdown{
         &:hover{
             .dropdown-menu{
+                display: block;
                 opacity: 1;
                 transition: all ease-in-out .5s;
             }
         }
     }
     .dropdown-menu{
-        display: block;
+        display: none;
         opacity: 0;
         padding: 0;
         transition: all ease-in-out .5s;

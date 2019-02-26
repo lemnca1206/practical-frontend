@@ -360,6 +360,8 @@ form {
       width: 30px;
       background-color: #f8f9fa;
       margin: 5px 0; }
+  .navbar-collapse.show {
+    height: 100vh; }
 
 .nav-item a {
   color: rgba(255, 255, 255, 0.65); }
@@ -367,11 +369,12 @@ form {
     color: rgba(255, 255, 255, 0.65); }
 
 .nav-item.dropdown:hover .dropdown-menu {
+  display: block;
   opacity: 1;
   transition: all ease-in-out .5s; }
 
 .nav-item .dropdown-menu {
-  display: block;
+  display: none;
   opacity: 0;
   padding: 0;
   transition: all ease-in-out .5s; }
