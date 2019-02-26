@@ -113,18 +113,6 @@ gulp.task('compress', function() {
             ignoreFiles: ['main.js']
         }))
         .pipe(gulp.dest('js')); //thư mục dùng để chứa các file js sau khi nén
-    //cấu hình minify css
-    // gulp.src('css/style.css') //đường dẫn đến thư mục chứa các file css
-    //     .pipe(minifyCss({ compatibility: 'ie8' }))
-    //     .pipe(gulp.dest('css')); //thư mục dùng để chứa các file css sau khi nén
-    //cấu hình minify image
-    // gulp.src('images/*') //đường dẫn đến thư mục chứa các file images
-    //     .pipe(imagemin({
-    //         progressive: true,
-    //         svgoPlugins: [{ removeViewBox: false }],
-    //         use: [pngquant()]
-    //     }))
-    //     .pipe(gulp.dest('images')); //thư mục dùng để chứa các file images sau khi nén
 });
 
 // Compile Our Sass
