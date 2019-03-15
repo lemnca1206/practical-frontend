@@ -1,32 +1,18 @@
 {
-  "name": "gulp-less-pug-skeleton",
-  "description": "Skeleton to create websites using Gulp as a task manager, LESS for CSS preprocessing and Pug to generate HTML effortlestly.",
-  "version": "1.0.3",
-  "keywords": "gulp, less, pug, node, skeleton",
-  "license": "MIT",
-  "author": {
-    "name": "Ngan",
-    "email": "nganttk89@gmail.com"
-  },
-  "repository": {
-    "type": "git"
-  },
-  "scripts": {},
-  "devDependencies": {
-    "browser-sync": "^2.18.7",
-    "del": "^3.0.0",
-    "gulp": "~3.9",
-    "gulp-autoprefixer": "^4.0.0",
+  "dependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^4.0.0",
     "gulp-concat": "^2.6.1",
-    "gulp-connect": "~5.0",
-    "gulp-cssmin": "~0.2",
-    "gulp-expect-file": "0.0.7",
-    "gulp-gh-pages": "^0.5.4",
-    "gulp-imagemin": "~3.3",
-    "gulp-less": "~3.3",
-    "gulp-pug": "~3.3",
-    "gulp-rename": "~1.2",
-    "gulp-uglify": "~3.0",
-    "gulp-watch": "^4.3.11"
+    "gulp-imagemin": "^5.0.3",
+    "gulp-livereload": "^4.0.1",
+    "gulp-minify": "^3.1.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-sass": "^4.0.2",
+    "imagemin-pngquant": "^7.0.0"
+  },
+  "devDependencies": {
+    "gulp-clean-css": "^4.0.0",
+    "gulp-minify": "^3.1.0",
+    "gulp-sitemap": "^6.2.0"
   }
 }
