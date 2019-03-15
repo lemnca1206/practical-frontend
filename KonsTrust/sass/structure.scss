@@ -1,0 +1,22 @@
+.section-box {
+    padding: 60px;
+    &-w{
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    &-h{
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    @media screen and (max-width: $screen-xs-max) {
+        padding: 30px;
+        &-w{
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        &-h{
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+@import 'reset.scss';
+@import "font-face.scss";
+@import 'mixin.scss';
+@import 'variable.scss';
+@import '_compass.scss';
+@import 'slick.scss';
+@import 'slick-theme.scss';
+@import "structure.scss";
+@import "common.scss";
+// Component
+@import "components/index.scss";
+//Block
+@import "pages/index.scss";

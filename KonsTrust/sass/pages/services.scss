@@ -1,0 +1,119 @@
+.service-detail{
+    &_item{
+        .box-pic{
+            img{
+                width: 100%;
+            }
+        }
+        .box-text{
+            padding: 20px;
+            background-color: $white;
+            color: $dark;
+            bottom: 0;
+            left: 0;
+            box-shadow: -8px 7px 5px 0px rgba(0,0,0,0.19);
+            -webkit-box-shadow: -8px 7px 5px 0px rgba(0,0,0,0.19);
+        }
+        .flying-art{
+            position: absolute;
+            top: 35%;
+            width: 25%;
+            text-align: center;
+            color: $dark;
+            left: -5%;
+            transform: rotate(270deg);
+            -webkit-transform: rotate(270deg);
+            &:before, &:after {
+                content: "";
+                position: absolute;
+                height: 2px;
+                width: 35%;
+                background-color: rgba(0,0,0,0.4); 
+                top: 50%;
+                transform: translateY(-50%);
+                -webkit-transform: translateY(-50%);                
+            }
+            &:before {
+                left: 0                
+            }
+            &:after {
+                right: 0
+            }
+        }
+        @media screen and (min-width: $screen-sm) {
+            .box-text{
+                position: absolute;
+                padding: 50px;
+                width: 40%;
+            }
+            .box-pic{
+                img{
+                    padding-left: 10%;
+                }
+            }
+        }
+        @media screen and (max-width: $screen-xs-max) {
+            .flying-art {
+                display: none;
+            }
+        }
+    }
+}
+.box-content{
+    margin-top: 50px;
+    &-inner{
+        margin-bottom: 20px;
+        ul{
+            li {
+                position: relative;
+                margin: 10px 0;
+                &::before{
+                    position: absolute;
+                    content: "";
+                    background-image: url("../images/check.jpg");
+                    background-position: center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    width: 20px;
+                    height: 20px;
+                    display: block;
+                    top: 0;
+                    left: 0;
+                }
+                span{
+                    margin-left: 30px;
+                }
+            }
+        }
+    }
+}
+.video-media{
+    position: relative;
+    .btn-play{
+        color: $dark;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+        background-color: $white;
+        border-radius: 50%;
+    }
+}
+.contact-service-wrap{
+    @media screen and (min-width: $screen-sm) {
+        h3, a{
+            display: inline-block;
+            vertical-align: miiddle;
+        }
+        h3 {
+            width: calc(100% - 180px);
+        }
+    }
+    @media screen and (max-width: $screen-xs-max) {
+        h3{
+            margin-bottom: 15px;
+        }
+    }
+
+}

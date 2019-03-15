@@ -1,0 +1,155 @@
+.logo{
+    display: inline-block;
+    vertical-align: middle;
+}
+.navbar{    
+    display: inline-block;
+    .nav-index &{
+        vertical-align: middle;
+        margin-left: 5%;
+        ul{
+            .nav-link{
+                a{
+                    color: $white;
+                }
+            }
+        }
+    }
+    ul {
+        .nav-link{
+            display: inline-block;
+            vertical-align: middle;
+            &:hover, &.active {
+                a {
+                    color: $outra-orange;
+                    transition: ease-out .3s;
+                    -webkit-transition: ease-out .3s;
+                }
+            }
+            a{                  
+                padding: 10px;
+                font-size: 15px;
+                transition: ease-out .3s;
+                -webkit-transition: ease-out .3s;
+                color: $dark;               
+            }
+        }
+    }
+    @media screen and (max-width: $screen-sm-max) {
+        display: none;
+    }    
+    &-toggler {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        top: 10px;
+        right: 30px;        
+        cursor: pointer;
+        .header-index &{
+            top: 20px;
+            @media screen and (min-width: $screen-sm) and (max-width: $screen-sm-max) {            
+                top: 50px;
+            }
+        }
+        span{
+            display: block;
+            position: relative;
+            width: 100%;
+            height: 3px;
+            background-color: $outra-orange;
+            margin: 7px 0;
+            transition: all ease .3s;
+            -webkit-transition: all ease .3s;
+        }
+        &.active {
+            span{
+                &:first-child {
+                    top: 10px;
+                    transform: rotate(45deg);
+                    -webkit-transform: rotate(45deg);
+                    transition: all ease .3s;
+                    -webkit-transition: all ease .3s;
+                }
+                &:nth-child(2) {
+                    opacity: 0;
+                    transition: all ease .3s;
+                    -webkit-transition: all ease .3s;
+                }
+                &:last-child {
+                    bottom: 10px;
+                    transform: rotate(-45deg);
+                    -webkit-transform: rotate(-45deg);
+                    transition: all ease .3s;
+                    -webkit-transition: all ease .3s;
+                }
+            }
+        }       
+        @media screen and (min-width: $screen-md) {
+            display: none;
+        }
+        
+    }
+    &-overlay{        
+        position: fixed;
+        top: 0;
+        width: 80%;
+        height: 100vh;
+        left: -100%;
+        z-index: 10;
+        background: -webkit-linear-gradient(-45deg, #f1e767 0%,#feb645 100%);
+        background: linear-gradient(135deg, #f1e767 0%,#feb645 100%);
+        transition: ease-out .5s;
+        -webkit-transition: ease-out .5s;
+        &.active {
+            left: 0;
+            transition: ease-out .5s;
+            -webkit-transition: ease-out .5s;
+        }
+        ul{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            margin-left: 50px;
+            li{
+                margin: 15px 0;
+            }
+        }
+        a{  
+            color: $white;
+            padding: 10px;
+            font-size: 36px;
+            transition: ease-out .3s;
+            -webkit-transition: ease-out .3s;
+        }
+        @media screen and (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+            width: 90%;
+        }
+        @media screen and (max-width: $screen-xs-max) {
+            a{
+                font-size: 24px;
+            }
+        }
+
+    }
+}
+.main-header{
+    &.header-index {
+        position: absolute;
+        z-index: 100;
+        width: 100%;
+        padding: 0;
+    }
+    
+    .main-nav{
+        display: flex;
+        justify-content: space-between;
+        &.nav-index{
+            position: relative;
+            display: block;
+        }
+    }
+    @media screen and (max-width: $screen-sm-max) {
+        padding: 20px 0;
+    }
+}

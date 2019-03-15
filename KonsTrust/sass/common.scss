@@ -1,0 +1,41 @@
+* {
+    font-family: $font-family;
+    font-size: 16px;
+}
+// Typo
+.heading{
+    &-1{
+        font-weight: 700;
+        font-size: 36px;
+    }
+    &-2 {
+        font-weight: 700;
+        font-size: 28px;
+    }
+    &-3 {
+        font-weight: 700;
+        font-size: 24px;
+    }
+    &-4{
+        font-weight: 400;
+        font-size: 18px;
+    }
+    &-5{
+        font-weight: 400;
+        font-size: 16px;
+    }
+}
+// color
+.cl{
+    &-outra-orange{
+        color: $outra-orange
+    }
+    &-dark{
+        color: $dark!important;
+    }
+}
+.bg{
+    &-outra-arange{
+        background-color: $outra-orange
+    }
+}

@@ -1,0 +1,72 @@
+.hero {
+    &-wrapper{
+        padding: 60px 0;
+        .hero-content{
+            color: $white;
+            .title{
+                text-transform: uppercase
+            }
+            .heading-4{
+                color: $outra-orange;
+            }
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }  
+        .carousel-item{
+            padding: 0;
+        }      
+    }
+}
+.float{
+    &-logo{
+        position: absolute;
+        color: rgba(255,255,255,.7);
+        top: 50%;
+        left: -35px;
+        transform: translateY(-50%);
+        transform: rotate(270deg);
+    }
+    &-socialLinks{
+        position: absolute;
+        bottom: 60px;
+        left: 60px;
+    }
+    @media screen and (max-width: $screen-sm-max) {
+        &-logo, &-socialLinks {
+            display: none;
+        }
+    }
+}
+.slider-branch{
+    border-top: 1px solid rgba(0,0,0,0.04);
+    .slick-dots {
+        bottom: 25px;
+        li {
+            button{
+                width: 15px;
+                height: 15px;
+                &:before{
+                    background-color: $dark;
+                    border-radius: 50%;
+                    width: 15px;
+                    height: 15px;
+                }
+            }
+        }
+    }
+}
+.project-mansory{
+    margin: 0 -15px;
+}
+.project-statistics{
+    margin-top: 60px;
+    padding-top: 60px;
+    border-top: 1px solid rgba(0,0,0,0.2);
+}
+.branch-item {
+    img{
+        width: 100%;
+    }    
+}

@@ -1,0 +1,174 @@
+.info-bar {
+    .main-nav & {
+        float: right;
+        @media screen and (max-width: $screen-md-max) {
+            display: none;
+        }
+    }
+    .item{
+        display: inline-block;
+        vertical-align: middle;
+        color: $white;
+        margin-left: 10px;
+        i{
+            color: $outra-orange;
+            vertical-align: middle;
+        }
+        span {
+            font-size: 15px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+}
+.social-list{
+    li {
+        display: inline-block;
+        vertical-align: middle;
+        &:hover {
+            a{
+                color: $outra-orange;
+                transition: ease-out .3s;
+                -webkit-transition: ease-out .3s;
+            }
+        }
+        a{
+            color: $white;
+            padding: 10px;
+            transition: ease-out .3s;
+            -webkit-transition: ease-out .3s;       
+        }
+    }
+}
+.widget{
+    &-item {
+        display: inline-block;
+        vertical-align: middle;
+    }    
+    &-bar{  
+        @media screen and (max-width: $screen-sm-max) {
+            display: none;  
+        }
+    }
+}
+.icon{
+    color: $dark;
+    padding: 10px;
+}
+.breadcrumb{
+    padding-top: 20px;
+    ul{
+        li{
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            &:not(:last-child) {
+                &:after{
+                    content: "-";
+                    font-size: 16px;
+                    position: absolute;
+                    right: -5px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    -webkit-transform: translateY(-50%);
+                }
+            }
+            a{  
+                color: $dark;
+                padding: 7px;
+            }
+        }
+    }
+}
+.social-links{
+    li{
+        display: inline-block;
+        vertical-align: middle;
+        i{
+            margin-right: 10px
+        }
+        .fa-facebook{
+            color: #4867aa;
+        }
+        .fa-twitter-square {
+            color: #1da1f3
+        }
+        .fa-instagram{
+            color: #ff5593
+        }
+        .fa-linkedin{
+            color: #0274b3
+        }
+    }
+}
+.meta-data{
+    padding: 10px 0;
+    .item{
+        
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        padding:0 5px;
+        border-right: 1px solid $dark;
+        span{
+            font-size: 14px;
+        }
+        &:first-child{
+            padding-left: 0;
+        }
+        &:last-child{
+            border-right: none
+        }       
+    }
+}
+.pagination{
+    .services-wrapper &{
+        float: right;
+    }
+    .page-list{
+        border: 1px solid $dark;
+        display: inline-block;        
+        background-color: $dark;
+        padding: 2px 0;
+        li{
+            display: inline-block;
+            vertical-align: middle;
+            padding: 10px 0;
+            color: $white;
+            &:nth-child(2) {
+                border-left: 1px solid rgba(255,255,255,0.3);
+                border-right: 1px solid rgba(255,255,255,0.3);
+                padding-left: 15px;
+                padding-right: 15px;
+            }          
+            a{
+                padding:15px;
+                color: $white;
+            }
+            .item{
+                display: inline-block;
+                vertical-align: middle;
+                &.current-num{
+                    color: $outra-orange;
+                }
+            }
+        }
+    }
+}
+.download{
+    &-icon{
+        background-image: url("../images/download.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .name{
+        padding-left: 10px;
+        color: $dark;
+    }
+    background-color: #fafafc;
+}

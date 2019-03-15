@@ -1,0 +1,120 @@
+.btn {
+    display: inline-block;
+    position: relative;
+    transition: all ease .5s;
+    -webkit-transition: all ease .5s;
+    border: none;
+    cursor: pointer;
+}
+.btn{
+    &-view{
+        color: $white;
+        margin-top: 10px;      
+        &::after{
+            position: absolute;
+            content: "";
+            border-bottom: 1px solid $white;
+            width: 100%;
+            bottom: 0;
+            left: 0;       
+        }
+    }
+    &-contact {
+        color: $dark;
+        margin-top: 10px;      
+        &::after{
+            position: absolute;
+            content: "";
+            border-bottom: 1px solid $dark;
+            width: 100%;
+            bottom: 0;
+            left: 0;       
+        }
+    }   
+    &-explore {
+        color: $dark;
+        i{
+            vertical-align: middle;
+            color: $outra-orange;
+        }
+        span {
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            font-size: 14px;
+            margin-left: 15px;
+            &::after{
+                position: absolute;
+                content: "";
+                border-bottom: 1px solid $dark;
+                width: 100%;
+                bottom: 0;
+                right: 0;
+            }
+        }        
+    }
+    &-scrollDown{
+        width: 20px;
+        height: 35px;
+        border: 1px solid $white;
+        border-radius: 40%;
+        left: 50%;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        &:before, &:after{
+            position: absolute;
+            content: '';            
+            border-radius: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+            -webkit-transform: translateX(-50%);
+        }
+        &:before {            
+            background-color: $white;
+            width: 5px;
+            height: 7px;            
+            top: 5px;
+        }
+        &:after {
+            background-color: rgba(255,255,255,0.7);
+            top: auto;
+            width: 5px;
+            height: 5px;
+            bottom:5px;
+        }
+    }
+    &-seacrh{
+        color: $outra-orange;
+        background-color: $dark;
+        padding: 7px 10px;
+        height: 40px;
+        width: 40px;
+        position: absolute;
+        top: 5px;
+        right: 5px;        
+        &:hover{
+            color: $white;
+            background-color: $outra-orange;
+            transition: all ease .5s;
+            -webkit-transition: all ease .5s;
+        }
+    }
+    &-reply{
+        color: $dark;
+        &:hover {
+            color: $outra-orange;
+            transition: all ease .5s;
+            -webkit-transition: all ease .5s;
+        }   
+    }
+    &-submit {
+        color: $white;
+        padding: 15px 30px;
+        background-color: $dark;
+        &:hover {
+            color: $outra-orange;
+            transition: all ease .5s;
+            -webkit-transition: all ease .5s;
+        }
+    }
+}
