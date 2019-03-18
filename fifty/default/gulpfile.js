@@ -21,13 +21,14 @@ gulp.task('serve', [], function() {
     gulp.watch(['js/*.js'], reload);
     gulp.watch(['css/*.css'], reload);
     gulp.watch(['images/**/*'], reload);
+    gulp.watch(['fonts/**/*'], reload);
 });
 
 
 gulp.task('build', [], function() {
     gulp.src("css/*.css")
         .pipe(gulp.dest('build/css'));
-    gulp.src("fonts/*")
+    gulp.src("fonts/**/*")
         .pipe(gulp.dest('build/fonts'));
     gulp.src("js/*.js")
         .pipe(gulp.dest('build/js'));

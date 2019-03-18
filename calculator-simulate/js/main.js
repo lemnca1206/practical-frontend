@@ -13,7 +13,7 @@ $(document).ready(() => {
         }
     
         if (target.classList.contains('decimal')) {
-            inputDecimal(target.value);
+            inputDecimal(target.value);            
             updateDisplay();
             return;
         }
@@ -70,7 +70,7 @@ handleOperator = (nextOperator) => {
       calculator.firstOperand = inputValue;
     } else if (operator) {
       const currentValue = firstOperand || 0;
-      const result = performCalculation[operator](currentValue, inputValue);  
+      const result = performCalculation[operator](currentValue, inputValue);
       calculator.displayValue = String(result);
       calculator.firstOperand = result;
     }
@@ -86,10 +86,14 @@ const performCalculation = {
     '+': (firstOperand, secondOperand) => firstOperand + secondOperand,
   
     '-': (firstOperand, secondOperand) => firstOperand - secondOperand,
-  
+
+    'sqrt': (firstOperand, secondOperand) => Math.sqrt(secondOperand),
+    
+    'x2': (firstOperand, secondOperand) => Math.pow(secondOperand, 2),
+
     '=': (firstOperand, secondOperand) => secondOperand
 };
-resetCalculator = () => {
+resetCalculator = () => {   
     calculator.displayValue = '0';
     calculator.firstOperand = null;
     calculator.waitingForSecondOperand = false;
