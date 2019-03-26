@@ -1,0 +1,47 @@
+.section-box{
+    padding: 80px 0;
+    position: relative;
+    &-h{
+        padding-left: 80px;
+    }
+    &-v{
+        padding-top: 80px;
+        padding-bottom: 80px; 
+    }    
+}
+.section {
+    &-header{
+        margin-bottom: 40px; 
+        &.white {
+            color: $whitesmoke;
+        }
+        p{
+            font-size: 14px;
+            font-family: $font-poppin;
+        }
+    }
+    &-title {
+        font-family: $font-tw;
+        font-size: 36px;
+        text-transform: capitalize;
+        font-weight: 700;
+        letter-spacing: 1px;
+        position: relative;
+        margin-bottom: 20px;
+        &::before{
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            border: 1px dotted $sunset-orange;
+            border-radius: 63px;
+            bottom: -10px;
+            left: 0;
+        }        
+    }
+    @media screen and (min-width: $screen-sm) {
+        &-header {
+            max-width: 40%;
+        }
+    }
+}

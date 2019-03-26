@@ -1,0 +1,117 @@
+.box{
+    &-wrap {
+        margin-top: 40px;
+    }
+    &-info{
+        border-right: 2px solid $black-rock;
+        &:last-child {
+            border-right: none;
+        }
+        h3{
+            color: $sunset-orange;
+            font-size: 25px;
+            font-family: $font-poppin; 
+        }
+        h4{
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 0;
+        }
+    }
+    &-text {
+        .content{
+            font-size: 15px;
+            font-family: $font-poppin;
+            line-height: 25px;
+
+        }
+    }
+}
+
+.card{
+    position: relative;
+    transition: all ease .5s;
+    -webkit-transition: all ease .5s;
+    *{
+        
+        &:not(last-child){
+            margin-bottom: 20px;
+        }
+    }
+    padding: 30px;
+    background-color: rgb(44, 45, 50);
+    margin-bottom: 30px;
+    &:hover {
+        transform: translateY(-20px);
+        transition: all ease .5s;
+        -webkit-transition: all ease .5s;
+    }
+    &.white{
+        color: $whitesmoke;
+    }
+    &-title{
+        font-size: 18px;
+        color: $sunset-orange;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-family: $font-tw;
+        font-weight: 700;
+    }
+    p{
+        font-size: 14px;
+        font-family: $font-poppin;
+    }
+    a{
+        color: $whitesmoke;
+        position: relative;
+        font-family: $font-tw;
+        display: inline-block;
+        font-size: 14px;
+        letter-spacing: 1px;
+        transition: all ease .5s;
+        -webkit-transition: all ease .5s;
+        &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: -20px;
+            width: 10px;
+            background-color: $whitesmoke;
+            height: 1px;
+            transition: all ease .5s;
+            -webkit-transition: all ease .5s;
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: -50px;
+            width: 0;
+            background-color: $whitesmoke;
+            height: 1px;
+            opacity: 0;
+            transition: all ease .5s;
+            -webkit-transition: all ease .5s;
+        }
+        &:hover {
+            margin-left: 10px;
+            text-decoration: none;
+            color: $sunset-orange;
+            transition: all ease .5s;
+            -webkit-transition: all ease .5s;
+            &::before{
+                width: 0;
+                transition: all ease .5s;
+                -webkit-transition: all ease .5s;
+            }
+            &:after{
+                width: 40px;
+                opacity: 1;
+                transition: all ease .5s;
+                -webkit-transition: all ease .5s;
+            }
+        }
+    }
+}
